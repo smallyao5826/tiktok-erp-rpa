@@ -1,0 +1,6 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆角矩形 -->
+  <rect width="96" height="96" rx="16" fill="#FE2C55" filter="drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))"/>
+  <!-- 闪电图标 -->
+ <path d="M 50 10 L 75 50 L 45 50 L 65 90 L 25 50 L 55 50 Z" fill="white" stroke="white" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

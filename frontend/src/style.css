@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------
+   设计系统 Token 定义 (Tailwind v4 语法)
+----------------------------------------------------------------- */
+@theme {
+  /* 1. 颜色系统 */
+  --color-primary: #FE2C55;
+  --color-secondary: #6366f1;
+  --color-accent: #818cf8;
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-heading: #0f172a;
+  --color-body: #475569;
+
+  /* 2. 圆角系统 */
+  --radius-xl: 1rem;     /* 16px */
+  --radius-lg: 0.75rem;  /* 12px */
+  --radius-md: 0.5rem;   /* 8px */
+  --radius-sm: 0.25rem;  /* 4px */
+
+  /* 3. 响应式字号预设 (基于 rem) 
+     1rem = 16px (标准)
+  -------------------------------------------------------------- */
+  --font-size-xs: 0.75rem;      /* 12px - 辅助文字、标注 */
+  --font-size-sm: 0.875rem;     /* 14px - 副文本、小按钮 */
+  --font-size-base: 0.9375rem;  /* 15px - 黄金阅读字号 (Linear 常用) */
+  --font-size-lg: 1.125rem;     /* 18px - 小标题、卡片标题 */
+  --font-size-xl: 1.25rem;      /* 20px - 中标题 */
+  --font-size-2xl: 1.5rem;      /* 24px - 页面子标题 */
+  --font-size-3xl: 1.875rem;    /* 30px - 页面大标题 */
+  --font-size-4xl: 2.25rem;     /* 36px - 巨型数字显示 */
+  --font-size-5xl: 3rem;        /* 48px - 统计面板主数值 */
+
+  /* 4. 阴影系统 */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-active: 0 20px 40px -12px rgba(254, 44, 85, 0.12);
+
+  /* 5. 动效系统 */
+  --animate-fade-up: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ----------------------------------------------------------------
+   全局基础重置
+----------------------------------------------------------------- */
+@layer base {
+  html {
+    /* 适配不同分辨率的关键：可以通过媒体查询在极宽屏幕上微调基准 */
+    font-size: 16px; 
+  }
+
+  body {
+    @apply bg-canvas text-body antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    user-select: none;
+    /* 统一的字母间距微调，增加高级感 */
+    letter-spacing: -0.01em; 
+  }
+
+  /* 标题类统一紧凑处理 */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-heading font-black tracking-tighter;
+  }
+}
+
+@layer components {
+  /* 导航项字体适配 */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 text-sm font-bold rounded-md transition-all hover:bg-slate-50 hover:text-heading;
+  }
+  
+  .nav-sub-item {
+    @apply block px-4 py-2 text-xs text-slate-400 font-bold rounded-md transition-all hover:text-heading hover:bg-slate-50;
+  }
+}
